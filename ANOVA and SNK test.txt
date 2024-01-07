@@ -1,0 +1,84 @@
+####ANOVA in dis.
+library(readr)
+data_dis <- read_csv("data.dis.csv")
+View(data_dis)
+
+data_dis$group.d = factor(data_dis$group.d)
+result.dis = aov( data_dis$dis ~ data_dis$group.d )
+summary( result.dis )
+
+library(agricolae)
+alpha_value <- 0.05
+result_dis <- aov(dis ~ group.d, data = data_dis)
+# 使用 SNK test
+out_dis <- SNK.test(result_dis, "group.d", alpha = alpha_value)
+# 顯示 SNK test 結果
+print(out_dis$groups)
+
+####ANOVA in en.
+library(readr)
+data_en <- read_csv("data.en.csv")
+View(data_en)
+
+data_en$group.en = factor(data_en$group.en)
+result.en = aov( data_en$en ~ data_en$group.en )
+summary( result.en )
+
+library(agricolae)
+alpha_value <- 0.05
+result_en <- aov(en ~ group.en, data = data_en)
+# 使用 SNK test
+out_en <- SNK.test(result_en, "group.en", alpha = alpha_value)
+# 顯示 SNK test 結果
+print(out_en$groups)
+
+####ANOVA in food
+library(readr)
+data_food <- read_csv("data.food.csv")
+View(data_food)
+
+data_food$group.f = factor(data_food$group.f)
+result.food = aov( data_food$food ~ data_food$group.f )
+summary( result.food )
+
+library(agricolae)
+alpha_value <- 0.05
+result_food <- aov(food ~ group.f, data = data_food)
+# 使用 SNK test
+out_food <- SNK.test(result_food, "group.f", alpha = alpha_value)
+# 顯示 SNK test 結果
+print(out_food$groups)
+
+####ANOVA in price
+library(readr)
+data_price <- read_csv("data.price.csv")
+View(data_price)
+
+data_price$group.p = factor(data_price$group.p)
+result.price = aov( data_price$price ~ data_price$group.p )
+summary( result.price )
+
+library(agricolae)
+alpha_value <- 0.05
+result_price <- aov(price ~ group.p, data = data_price)
+# 使用 SNK test
+out_price <- SNK.test(result_price, "group.p", alpha = alpha_value)
+# 顯示 SNK test 結果
+print(out_price$groups)
+
+####ANOVA in se
+library(readr)
+data_se <- read_csv("data.se.csv")
+View(data_se)
+
+data_se$group.se = factor(data_se$group.se)
+result.se = aov( data_se$se ~ data_se$group.se )
+summary( result.se )
+
+library(agricolae)
+alpha_value <- 0.05
+result_se <- aov(se ~ group.se, data = data_se)
+# 使用 SNK test
+out_se <- SNK.test(result_se, "group.se", alpha = alpha_value)
+# 顯示 SNK test 結果
+print(out_se$groups)
